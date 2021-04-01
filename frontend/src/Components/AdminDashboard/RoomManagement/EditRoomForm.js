@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRoom } from "../../../redux/actions/rooms";
 import { updateRoom } from "../../../redux/actions/rooms";
-import { getAllHotels } from "../../../redux/actions/hotels";
-import { setSuccess } from "../../../redux/actions/global";
-import { useParams, useHistory } from "react-router-dom";
-import Tags from "@yaireo/tagify/dist/react.tagify"; // React-wrapper file
-import "@yaireo/tagify/dist/tagify.css"; //
+
 
 function EditRoomForm() {
     const dispatch = useDispatch();
@@ -20,12 +16,7 @@ function EditRoomForm() {
         guest: "",
         hotel_id: ""
     });
-    const [image, setImage] = useState(null);
-    const [features, setFeatures] = useState([]);
-    useEffect(() => {
-        getRoom(dispatch, id);
-        getAllHotels(dispatch, state.auth.token);
-    }, []); // eslint-disable-line
+
 
     useEffect(() => {
         state.rooms.room && setRoom(state.rooms.room);
