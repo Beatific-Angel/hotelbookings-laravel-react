@@ -48,20 +48,8 @@ function EditRoomForm() {
         let _features;
         _features = JSON.parse(features);
         _features = _features && _features.map((feature) => feature.value);
-        const formData = new FormData();
-        formData.append("_method", "PUT");
-
-        formData.append("id", id);
-        formData.append("name", room.name);
-        formData.append("description", room.description);
-        formData.append("price", room.price);
-        formData.append("guest", room.guest);
-        formData.append("hotel_id", room.hotel_id);
-        formData.append("features", JSON.stringify(_features));
-        for (const key of Object.keys(image)) {
-            image && formData.append(`image[${key}]`, image[key]);
-        }
-
+    
+       
         updateRoom(dispatch, formData, state.auth.token);
     };
 
