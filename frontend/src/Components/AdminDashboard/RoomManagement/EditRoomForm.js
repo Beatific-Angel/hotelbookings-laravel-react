@@ -87,41 +87,12 @@ function EditRoomForm() {
                         className="w-32 h-32 rounded-sm object-cover"
                     />
 
-                    <label className="ml-5 px-5 py-2 text-gray-200 bg-orange-500 hover:bg-orange-900 rounded-sm cursor-pointer">
-                        <input
-                            type="file"
-                            id="test"
-                            className="hidden"
-                            onChange={(e) => {
-                                setImage(e.target.files);
-                            }}
-                            multiple
-                        />
-                        <i className="fas fa-camera mr-2"></i>
-                        <span>
-                            {image && typeof image === "object"
-                                ? Object.keys(image).map(function (key, index) {
-                                      return image[key].name + ", ";
-                                  })
-                                : "Upload"}
-                        </span>
-                    </label>
                 </div>
 
                 <label htmlFor="name" className="block mt-5">
                     Room Name:{" "}
                 </label>
-                <input
-                    type="text"
-                    name="name"
-                    className="p-2 w-full xl:w-1/2 border border-gray-400 focus:outline-none focus:border-black"
-                    value={room.name}
-                    onChange={(e) => setRoom({ ...room, name: e.target.value })}
-                />
-
-                <label htmlFor="description" className="block mt-5">
-                    Room Description:{" "}
-                </label>
+                
                 <textarea
                     className="p-2 w-full xl:w-1/2 border border-gray-400 focus:outline-none focus:border-black"
                     value={room.description}
