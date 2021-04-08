@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRoom } from "../../../redux/actions/rooms";
 import { updateRoom } from "../../../redux/actions/rooms";
-
+import { getAllHotels } from "../../../redux/actions/hotels";
+import { setSuccess } from "../../../redux/actions/global";
+import { useParams, useHistory } from "react-router-dom";
+import Tags from "@yaireo/tagify/dist/react.tagify"; // React-wrapper file
+import "@yaireo/tagify/dist/tagify.css"; //
 
 function EditRoomForm() {
     const dispatch = useDispatch();
@@ -16,7 +20,12 @@ function EditRoomForm() {
         guest: "",
         hotel_id: ""
     });
-
+    const [image, setImage] = useState(null);
+    const [features, setFeatures] = useState([]);
+    useEffect(() => {
+        getRoom(dispatch, id);
+        getAllHotels(dispatch, state.auth.token);
+    }, []); // eslint-disable-line
 
     useEffect(() => {
         state.rooms.room && setRoom(state.rooms.room);
@@ -48,8 +57,20 @@ function EditRoomForm() {
         let _features;
         _features = JSON.parse(features);
         _features = _features && _features.map((feature) => feature.value);
-    
-       
+        const formData = new FormData();
+        formData.append("_method", "PUT");
+
+        formData.append("id", id);
+        formData.append("name", room.name);
+        formData.append("description", room.description);
+        formData.append("price", room.price);
+        formData.append("guest", room.guest);
+        formData.append("hotel_id", room.hotel_id);
+        formData.append("features", JSON.stringify(_features));
+        for (const key of Object.keys(image)) {
+            image && formData.append(`image[${key}]`, image[key]);
+        }
+
         updateRoom(dispatch, formData, state.auth.token);
     };
 
@@ -87,12 +108,41 @@ function EditRoomForm() {
                         className="w-32 h-32 rounded-sm object-cover"
                     />
 
+                    <label className="ml-5 px-5 py-2 text-gray-200 bg-orange-500 hover:bg-orange-900 rounded-sm cursor-pointer">
+                        <input
+                            type="file"
+                            id="test"
+                            className="hidden"
+                            onChange={(e) => {
+                                setImage(e.target.files);
+                            }}
+                            multiple
+                        />
+                        <i className="fas fa-camera mr-2"></i>
+                        <span>
+                            {image && typeof image === "object"
+                                ? Object.keys(image).map(function (key, index) {
+                                      return image[key].name + ", ";
+                                  })
+                                : "Upload"}
+                        </span>
+                    </label>
                 </div>
 
                 <label htmlFor="name" className="block mt-5">
                     Room Name:{" "}
                 </label>
-                
+                <input
+                    type="text"
+                    name="name"
+                    className="p-2 w-full xl:w-1/2 border border-gray-400 focus:outline-none focus:border-black"
+                    value={room.name}
+                    onChange={(e) => setRoom({ ...room, name: e.target.value })}
+                />
+
+                <label htmlFor="description" className="block mt-5">
+                    Room Description:{" "}
+                </label>
                 <textarea
                     className="p-2 w-full xl:w-1/2 border border-gray-400 focus:outline-none focus:border-black"
                     value={room.description}
