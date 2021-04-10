@@ -76,39 +76,6 @@ function AdminSiderBar() {
                 </Link>
 
                 <div className="hidden md:block border-t w-2/3 my-5"></div>
-
-                <Link
-                    to="/room-management"
-                    className={`block py-2 px-4 rounded-sm hover:bg-gray-400 ${
-                        currentPage === 3 && "bg-gray-400"
-                    }`}
-                >
-                    <i className="fas fa-bed md:mr-2"></i>
-                    <span className="mt-2 lg:mt-0">Rooms Management</span>
-                </Link>
-
-                <div className="hidden md:block border-t w-2/3 my-5"></div>
-
-                <Link
-                    to="/booking-management"
-                    className={`block py-2 px-4 rounded-sm hover:bg-gray-400 ${
-                        currentPage === 4 && "bg-gray-400"
-                    }`}
-                >
-                    <i className="fas fa-ticket-alt md:mr-2"></i>
-                    <span className="mt-2 lg:mt-0">Bookings Management</span>
-                </Link>
-                <div className="hidden md:block border-t w-2/3 my-5"></div>
-
-                <Link
-                    to="/review-management"
-                    className={`block py-2 px-4 rounded-sm hover:bg-gray-400 ${
-                        currentPage === 5 && "bg-gray-400"
-                    }`}
-                >
-                    <i className="fas fa-pen md:mr-2"></i>
-                    <span className="mt-2 lg:mt-0">Reviews Management</span>
-                </Link>
             </div>
         </div>
     );
