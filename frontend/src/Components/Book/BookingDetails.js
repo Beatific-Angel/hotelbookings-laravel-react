@@ -2,30 +2,6 @@ import React, { useState, useEffect } from "react";
 import useSecureLs from "../Global/useSecureLs";
 
 function BookingDetails({ booking, setBooking }) {
-    const [price, setPrice] = useState(0);
-    const [room_id] = useSecureLs("room_id");
-    const [room_name] = useSecureLs("room_name");
-    const [room_price] = useSecureLs("room_price");
-    const [room_image] = useSecureLs("room_image");
-    const room = {
-        room_id,
-        name: room_name,
-        price: room_price,
-        image: room_image
-    };
-
-    const calcPrice = () => {
-        if (booking.check_in !== "" && booking.check_out !== "") {
-            const oneDay = 24 * 60 * 60 * 1000;
-            const check_out = new Date(booking.check_out);
-            const check_in = new Date(booking.check_in);
-            const diffDays = Math.floor((check_out - check_in) / oneDay);
-
-            if (diffDays > 0) {
-                setPrice(room.price * diffDays);
-            }
-        }
-    };
 
     useEffect(() => {
         calcPrice();
@@ -59,6 +35,7 @@ function BookingDetails({ booking, setBooking }) {
                                 <span>{price}</span>$
                             </span>
                         </div>
+
                     </div>
                 </div>
             </div>
