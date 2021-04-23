@@ -6,6 +6,16 @@ function UserPersonalInfo({ user, id }) {
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
 
+    const [userInfo, setUserInfo] = useState({
+        id: "",
+        first_name: "",
+        last_name: "",
+        phone: "",
+        address: "",
+        city: ""
+    });
+    const [image, setImage] = useState(null);
+
     useEffect(() => {
         setUserInfo({
             id,
@@ -17,7 +27,22 @@ function UserPersonalInfo({ user, id }) {
         });
     }, [user]); // eslint-disable-line
 
-    
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+
+        formData.append("_method", "PUT");
+        formData.append("id", id);
+        formData.append("first_name", userInfo.first_name);
+        formData.append("last_name", userInfo.last_name);
+        formData.append("phone", userInfo.phone);
+        formData.append("address", userInfo.address);
+        formData.append("city", userInfo.city);
+
+        image && formData.append("image", image);
+
+        updateUserInfo(dispatch, state.auth.token, formData);
+    };
     return (
         <div>
             <h2 className="font-semibold">
