@@ -35,20 +35,7 @@ function ErrorMessage({ errors }) {
                                     (error) => error
                                 );
                             case "undefined":
-                                return Object.keys(errors).map((error, i) => {
-                                    return (
-                                        <div
-                                            key={i}
-                                            dangerouslySetInnerHTML={{
-                                                __html: `${
-                                                    errors[
-                                                        Object.keys(errors)[i]
-                                                    ]
-                                                }`
-                                            }}
-                                        />
-                                    );
-                                });
+                                
                             default:
                                 return "Errorx";
                         }
