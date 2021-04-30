@@ -20,7 +20,11 @@ function ErrorMessage({ errors }) {
 
     return (
         <div
-        
+            className={
+                hidden
+                    ? "hidden"
+                    : "w-11/12 md:w-1/2 text-center bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-sm fixed top-0 left-1/2 transform -translate-x-1/2 translate-y-0 z-50 mt-5"
+            }
             role="alert"
         >
             <span className="block sm:inline">
@@ -35,11 +39,38 @@ function ErrorMessage({ errors }) {
                                     (error) => error
                                 );
                             case "undefined":
-                                
+                                return Object.keys(errors).map((error, i) => {
+                                    return (
+                                        <div
+                                            key={i}
+                                            dangerouslySetInnerHTML={{
+                                                __html: `${
+                                                    errors[
+                                                        Object.keys(errors)[i]
+                                                    ]
+                                                }`
+                                            }}
+                                        />
+                                    );
+                                });
                             default:
                                 return "Errorx";
                         }
-                    }
+                    } else if (typeof errors === "object") {
+                        return Object.keys(errors).map((error, i) => {
+                            return (
+                                <div
+                                    key={i}
+                                    dangerouslySetInnerHTML={{
+                                        __html: `${
+                                            errors[Object.keys(errors)[i]]
+                                        }`
+                                    }}
+                                />
+                            );
+                        });
+                    } else if (typeof errors === "string") return errors;
+                    else return "Error";
                 })()}
             </span>
             <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
