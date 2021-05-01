@@ -58,17 +58,6 @@ function AdminPassword({ id }) {
                 <label htmlFor="password" className="block mt-5">
                     Confirm Password:{" "}
                 </label>
-                <input
-                    type="password"
-                    className="p-2 w-full xl:w-1/2 border border-gray-400 focus:outline-none focus:border-black"
-                    value={userPassword.confirmNewPassword}
-                    onChange={(e) =>
-                        setUserPassword({
-                            ...userPassword,
-                            confirmNewPassword: e.target.value
-                        })
-                    }
-                />
 
                 <button
                     className="text-center bg-yellow-600 text-white hover:bg-yellow-700 uppercase text-sm px-6 py-2 shadow

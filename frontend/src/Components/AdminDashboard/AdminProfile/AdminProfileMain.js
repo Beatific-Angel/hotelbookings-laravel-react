@@ -4,11 +4,6 @@ import AdminPassword from "./AdminPassword";
 import AdminEmail from "./AdminEmail";
 import ErrorMessage from "../../Global/ErrorMessage";
 import SuccessMessage from "../../Global/SuccessMessage";
-import Loading from "../../Global/Loading";
-import { useSelector, useDispatch } from "react-redux";
-import { getUser } from "../../../redux/actions/users";
-import { setSuccess } from "../../../redux/actions/global";
-import { useParams } from "react-router-dom";
 
 function AdminProfileMain() {
     const dispatch = useDispatch();
