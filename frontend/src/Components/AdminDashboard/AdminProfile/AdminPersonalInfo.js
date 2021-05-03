@@ -91,6 +91,45 @@ function AdminPersonalInfo({ user, id }) {
                     }
                 />
 
+                <label htmlFor="last_name" className="block mt-5">
+                    Last Name:{" "}
+                </label>
+                <input
+                    type="text"
+                    name="last_name"
+                    className="p-2 w-full xl:w-1/2 border border-gray-400 focus:outline-none focus:border-black"
+                    value={userInfo.last_name}
+                    onChange={(e) =>
+                        setUserInfo({ ...userInfo, last_name: e.target.value })
+                    }
+                />
+
+                <label htmlFor="phone" className="block mt-5">
+                    Phone:{" "}
+                </label>
+                <input
+                    type="tel"
+                    name="phone"
+                    className="p-2 w-full xl:w-1/2 border border-gray-400 focus:outline-none focus:border-black"
+                    value={userInfo.phone}
+                    onChange={(e) =>
+                        setUserInfo({ ...userInfo, phone: e.target.value })
+                    }
+                />
+
+                <label htmlFor="address" className="block mt-5">
+                    Address:{" "}
+                </label>
+                <input
+                    type="text"
+                    name="address"
+                    className="p-2 w-full xl:w-1/2 border border-gray-400 focus:outline-none focus:border-black"
+                    value={userInfo.address}
+                    onChange={(e) =>
+                        setUserInfo({ ...userInfo, address: e.target.value })
+                    }
+                />
+
                 <button
                     className="text-center bg-yellow-600 text-white hover:bg-yellow-700 uppercase text-sm px-6 py-2 shadow
                     hover:shadow-lg block mt-5"
