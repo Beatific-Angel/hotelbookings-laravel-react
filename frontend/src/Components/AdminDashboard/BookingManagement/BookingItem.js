@@ -30,7 +30,36 @@ export default class BookingItem extends Component {
                     className="w-full h-56 object-cover rounded-sm  shadow-xl "
                 />
                 <ul className="mt-5">
-                
+                    <li className="font-semibold">
+                        Booking ID : <span>#{id}</span>
+                    </li>
+                    <li className="mt-2 font-semibold">
+                        Hotel : <span>{name}</span>
+                    </li>
+                    <li className="mt-2 font-semibold">
+                        City : <span>{city}</span>
+                    </li>
+                    <li className="mt-2 font-semibold">
+                        Price : <span>{price}</span>$
+                    </li>
+                    <li className="mt-2 font-semibold">
+                        Check-in Date : <span>{check_in}</span>
+                    </li>
+                    <li className="mt-2 font-semibold">
+                        Check-out Date : <span>{check_out}</span>
+                    </li>
+                    <li className="mt-2 font-semibold">
+                        Booked by :{" "}
+                        <span>
+                            {first_name} {last_name}
+                        </span>
+                    </li>
+                    <li className="mt-2 font-semibold">
+                        Placed on :{" "}
+                        <span>
+                            {new Date(created_at).toISOString().split("T")[0]}
+                        </span>
+                    </li>
                 </ul>
 
                 <ReactToPrint
