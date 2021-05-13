@@ -125,62 +125,7 @@ function EditHotelForm() {
                     }
                 />
 
-                <label htmlFor="address" className="block mt-5">
-                    Address:{" "}
-                </label>
-                <input
-                    type="text"
-                    name="address"
-                    className="p-2 w-full xl:w-1/2 border border-gray-400 focus:outline-none focus:border-black"
-                    value={hotel.address}
-                    onChange={(e) =>
-                        setHotel({ ...hotel, address: e.target.value })
-                    }
-                />
 
-                <label htmlFor="city" className="block mt-5">
-                    City:{" "}
-                </label>
-                <input
-                    type="text"
-                    name="city"
-                    className="p-2 w-full xl:w-1/2 border border-gray-400 focus:outline-none focus:border-black"
-                    value={hotel.city}
-                    onChange={(e) =>
-                        setHotel({ ...hotel, city: e.target.value })
-                    }
-                />
-
-                <label
-                    htmlFor="map_coordinates"
-                    className="block mt-5 font-semibold"
-                >
-                    Map Coordinate:{" "}
-                </label>
-                <label htmlFor="map_coordinates" className="block mt-5">
-                    X Coordinate:{" "}
-                </label>
-                <input
-                    type="text"
-                    name="map_coordinates"
-                    className="p-2 w-full xl:w-1/2 border border-gray-400 focus:outline-none focus:border-black"
-                    value={hotel.x_coordinate}
-                    onChange={(e) =>
-                        setHotel({ ...hotel, x_coordinate: e.target.value })
-                    }
-                />
-                <label htmlFor="map_coordinates" className="block mt-5">
-                    Y Coordinate:{" "}
-                </label>
-                <input
-                    type="text"
-                    name="map_coordinates"
-                    className="p-2 w-full xl:w-1/2 border border-gray-400 focus:outline-none focus:border-black"
-                    value={hotel.y_coordinate}
-                    onChange={(e) =>
-                        setHotel({ ...hotel, y_coordinate: e.target.value })
-                    }
-                />
 
                 <button
                     className="text-center bg-yellow-600 text-white hover:bg-yellow-700 uppercase text-sm px-6 py-2 shadow
