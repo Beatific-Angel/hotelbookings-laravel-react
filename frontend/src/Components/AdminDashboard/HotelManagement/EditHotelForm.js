@@ -61,12 +61,6 @@ function EditHotelForm() {
 
     return (
         <div className="w-full md:w-6/12 xl:w-8/12 md:ml-5 bg-gray-200 p-5 rounded-sm  ">
-            {state.hotels.loading && <Loading />}
-            {state.hotels.success === false && (
-                <ErrorMessage errors={state.hotels.errors} />
-            )}
-            {state.hotels.success && <SuccessMessage message="Success" />}
-            <h2 className="text-xl font-semibold">Add Hotel</h2>
             <form
                 action=""
                 className="mt-5 bg-gray-300 p-5 rounded-sm "
