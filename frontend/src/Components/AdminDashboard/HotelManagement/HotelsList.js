@@ -40,29 +40,7 @@ function HotelsList() {
                 Add a Hotel
             </Link>
 
-            {state.hotels.pagination.last_page !== 1 && (
-                <Pagination
-                    paginate={state.hotels}
-                    method={getAllHotels}
-                    params={[dispatch, state.auth.token]}
-                />
-            )}
-            <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
-                {state &&
-                    state.hotels.allHotels.map((hotel) => {
-                        return <HotelItem key={hotel.id} hotel={hotel} />;
-                    })}
-            </div>
-            {state.hotels.allHotels.length === 0 && (
-                <div className="mt-10">There are no hotels!</div>
-            )}
-            {state.hotels.pagination.last_page !== 1 && (
-                <Pagination
-                    paginate={state.hotels}
-                    method={getAllHotels}
-                    params={[dispatch, state.auth.token]}
-                />
-            )}
+        
         </div>
     );
 }
