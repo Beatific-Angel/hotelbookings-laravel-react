@@ -59,10 +59,39 @@ function EditReview({
                 <h2 className="text-2xl font-semibold text-gray-100">
                     Update Your Review
                 </h2>
+                <textarea
+                    rows="3"
+                    className="w-full rounded-sm  border p-2 my-2 focus:outline-none focus:border-gray-700"
+                    value={review.content}
+                    onChange={(e) =>
+                        setReview({ ...review, content: e.target.value })
+                    }
+                ></textarea>
                 <div className="flex items-center">
                     <button className="bg-orange-500 hover:bg-orange-700 text-gray-100 font-bold py-2 px-4 rounded-sm mr-5">
                         Update
                     </button>
+                    <select
+                        className="py-2 px-4"
+                        value={review.rating}
+                        onChange={(e) => {
+                            setReview({
+                                ...review,
+                                rating: e.target.value
+                            });
+                        }}
+                    >
+                        <option value="10">10 Amazing</option>
+                        <option value="9">9 Great</option>
+                        <option value="8">8 Very Good</option>
+                        <option value="7">7 Good</option>
+                        <option value="6">6 Fine</option>
+                        <option value="5">5 Average</option>
+                        <option value="4">4 Bad</option>
+                        <option value="3">3 Very Bad</option>
+                        <option value="2">2 Horrible</option>
+                        <option value="1">1 Appaling</option>
+                    </select>
                 </div>
             </form>
         </div>
