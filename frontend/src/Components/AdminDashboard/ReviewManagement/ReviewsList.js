@@ -26,8 +26,33 @@ function ReviewsList() {
     return (
         <div className="w-full md:w-6/12 xl:w-8/12 md:ml-5 bg-gray-200 p-5 rounded-sm  ">
             <h2 className="text-xl font-semibold">All Reviews</h2>
-        
-           
+            {state.reviews.loading && <Loading />}
+            {state.reviews.success === false && (
+                <ErrorMessage errors={state.reviews.errors} />
+            )}
+            {state.reviews.success && <SuccessMessage message="Success" />}
+            {state.reviews.pagination.last_page !== 1 && (
+                <Pagination
+                    paginate={state.reviews}
+                    method={getAllReviews}
+                    params={[dispatch, state.auth.token]}
+                />
+            )}
+            {state &&
+                state.reviews.reviews.map((review) => {
+                    return <ReviewItem key={review.id} review={review} />;
+                })}
+
+            {state.reviews.reviews.length === 0 && (
+                <div className="mt-10">There are no reviews!</div>
+            )}
+            {state.reviews.pagination.last_page !== 1 && (
+                <Pagination
+                    paginate={state.reviews}
+                    method={getAllReviews}
+                    params={[dispatch, state.auth.token]}
+                />
+            )}
         </div>
     );
 }
