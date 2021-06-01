@@ -92,19 +92,6 @@ export default function (state = initialState, action) {
                 errors: action.payload.success ? null : action.payload.errors
             };
         }
-        case SET_LOADING: {
-            return {
-                ...state,
-                loading: action.payload
-            };
-        }
-        case SET_SUCCESS: {
-            return {
-                ...state,
-                success: action.payload
-            };
-        }
-        default:
-            return state;
+        
     }
 }
