@@ -1,15 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Header from "../Global/Header";
-import Footer from "../Global/Footer";
-import Border from "../Global/Border";
-import TitleSection from "../Global/TitleSection";
-import Loading from "../Global/Loading";
 
-import HotelHero from "./HotelHero";
-import HotelRooms from "./HotelRooms";
-import GuestReviewsList from "./GuestReviewsList";
-import ReviewForm from "./ReviewForm";
-import HotelGoogleMap from "./HotelGoogleMap";
 
 import { getHotel } from "../../redux/actions/hotels";
 import { getHotelReviews } from "../../redux/actions/reviews";
@@ -24,15 +13,6 @@ function Hotel(props) {
     let { id } = useParams();
     const [_user_id] = useSecureLs("user_id");
     const [userId, setUserId] = useState(_user_id);
-
-    useEffect(() => {
-        getHotel(dispatch, id);
-    }, [state.reviews]); // eslint-disable-line
-    useEffect(() => {
-        setUserId(userId);
-        getHotelReviews(dispatch, id, userId);
-    }, []); // eslint-disable-line
-
     let history = useHistory();
     useEffect(() => {
         const timer = setTimeout(() => {
