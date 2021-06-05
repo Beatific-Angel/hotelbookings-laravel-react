@@ -41,17 +41,7 @@ function BookingDetails({ booking, setBooking }) {
 
             <div className="p-5 ">
                 <div className="flex flex-col md:flex-row md:justify-between w-full bg-gray-200 rounded-sm  overflow-hidden shadow-xl">
-                    <div className="md:w-1/4">
-                        <img // eslint-disable-line
-                            src={
-                                room_image
-                                    ? `${process.env.REACT_APP_BASE_URL}/img/rooms/${room_image}`
-                                    : "http://placehold.it/300x300?text=image not available"
-                            }
-                            alt="room image"
-                            className="h-full w-full object-cover"
-                        />
-                    </div>
+
                     <div className="p-5 md:w-3/4">
                         <div className="font-semibold text-2xl flex flex-col md:flex-row md:justify-between">
                             <span>{room.name}</span>
@@ -61,12 +51,6 @@ function BookingDetails({ booking, setBooking }) {
                         </div>
                         <div className="mt-8">
                             <div className="flex flex-col md:flex-row md:justify-between items-center">
-                                <label
-                                    htmlFor="check-in"
-                                    className="mr-5 text-gray-900 md:w-1/4"
-                                >
-                                    Check-in
-                                </label>
                                 <input
                                     id="check-in"
                                     className="mt-2 md:mt-0 px-6 py-3 wf w-full md:w-3/4"
