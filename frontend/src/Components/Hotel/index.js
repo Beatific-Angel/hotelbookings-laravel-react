@@ -33,15 +33,6 @@ function Hotel(props) {
         <>
             {state.reviews.loading && <Loading />}
 
-            <Header hotelId={id} />
-
-            <HotelHero hotel={state.hotels.hotel} />
-
-            {state.hotels.hotel && (
-                <TitleSection title={`${state.hotels.hotel.name}'s Rooms`} />
-            )}
-
-            <HotelRooms hotel={state.hotels.hotel} />
 
             {state && state.reviews.reviews.length > 0 && (
                 <>
