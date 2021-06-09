@@ -11,5 +11,8 @@ export default combineReducers({
     hotels,
     auth,
     rooms,
-    users
+    users,
+    bookings,
+    reviews,
+    search
 });
