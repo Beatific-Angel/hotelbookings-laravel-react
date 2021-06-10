@@ -1,15 +1,3 @@
-import {
-    GET_USER_REVIEWS,
-    ADD_REVIEW,
-    UPDATE_REVIEW,
-    DELETE_REVIEW,
-    SET_LOADING,
-    GET_HOTEL_REVIEWS,
-    GET_ALL_REVIEWS,
-    SET_SUCCESS,
-    HAS_BOOKED
-} from "../actionTypes";
-
 const initialState = {
     reviews: [],
     success: null,
