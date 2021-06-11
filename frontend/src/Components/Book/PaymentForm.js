@@ -26,25 +26,6 @@ function PaymentForm({ booking, setBooking, maxLengthCheck, onSubmitHandler }) {
                         }
                     />
                 </div>
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between pt-2">
-                    <label htmlFor="last-name" className="mr-2">Last Name*</label>
-                    <input
-                        id="last-name"
-                        type="text"
-                        className="p-2 border border-gray-600 mt-2 lg:w-3/4"
-                        aria-required="true"
-                        value={booking.full_name[1]}
-                        onChange={(e) =>
-                            setBooking({
-                                ...booking,
-                                full_name: [
-                                    booking.full_name[0],
-                                    e.target.value
-                                ]
-                            })
-                        }
-                    />
-                </div>
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between pt-2 relative">
                     <label htmlFor="card-number" className="mr-2">Card Number*</label>
                     <input
@@ -68,25 +49,6 @@ function PaymentForm({ booking, setBooking, maxLengthCheck, onSubmitHandler }) {
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between pt-2">
                     <label htmlFor="expiry-date" className="mr-2">Expiry Date*</label>
                     <div className="w-full lg:w-3/4">
-                        <input
-                            id="expiry-date"
-                            type="number"
-                            min="01"
-                            max="12"
-                            maxLength="2"
-                            onInput={maxLengthCheck}
-                            className="p-2 border border-gray-600 mt-2 md:w-2/12"
-                            placeholder="MM"
-                            aria-required="true"
-                            value={booking.exp_month}
-                            onChange={(e) =>
-                                setBooking({
-                                    ...booking,
-                                    exp_month: e.target.value
-                                })
-                            }
-                        />
-                        /
                         <input
                             type="number"
                             min={new Date()
