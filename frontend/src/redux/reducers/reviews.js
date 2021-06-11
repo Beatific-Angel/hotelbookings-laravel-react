@@ -56,35 +56,7 @@ export default function (state = initialState, action) {
                 }
             };
         }
-        case GET_HOTEL_REVIEWS: {
-            return {
-                ...state,
-                reviews: action.payload.success
-                    ? action.payload.reviews.data
-                    : [...state.reviews],
-                pagination: {
-                    current_page: action.payload.reviews.current_page,
-                    first_page_url: action.payload.reviews.first_page_url,
-                    from: action.payload.reviews.from,
-                    last_page: action.payload.reviews.last_page,
-                    last_page_url: action.payload.reviews.last_page_url,
-                    next_page_url: action.payload.reviews.next_page_url,
-                    path: action.payload.reviews.path,
-                    per_page: action.payload.reviews.per_page,
-                    prev_page_url: action.payload.reviews.prev_page_url
-                }
-            };
-        }
-        case ADD_REVIEW: {
-            return {
-                ...state,
-                reviews: action.payload.success
-                    ? [...state.reviews, action.payload.review]
-                    : [...state.reviews],
-                success: action.payload.success ? true : false,
-                errors: action.payload.success ? null : action.payload.errors
-            };
-        }
+    
         case UPDATE_REVIEW: {
             return {
                 ...state,
