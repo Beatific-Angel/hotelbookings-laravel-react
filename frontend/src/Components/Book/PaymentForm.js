@@ -37,12 +37,6 @@ function PaymentForm({ booking, setBooking, maxLengthCheck, onSubmitHandler }) {
                         placeholder="0000 0000 0000 0000"
                         aria-required="true"
                         value={booking.number}
-                        onChange={(e) =>
-                            setBooking({
-                                ...booking,
-                                number: e.target.value.replace(/\D/, "")
-                            })
-                        }
                     />
                     <i className="fas fa-credit-card text-gray-600 transform scale-150 absolute bottom-0 right-0 mr-5 mb-3"></i>
                 </div>
@@ -51,18 +45,6 @@ function PaymentForm({ booking, setBooking, maxLengthCheck, onSubmitHandler }) {
                     <div className="w-full lg:w-3/4">
                         <input
                             type="number"
-                            min={new Date()
-                                .getFullYear()
-                                .toString()
-                                .substr(2, 2)}
-                            max={
-                                parseInt(
-                                    new Date()
-                                        .getFullYear()
-                                        .toString()
-                                        .substr(2, 2)
-                                ) + 20
-                            }
                             maxLength="2"
                             onInput={maxLengthCheck}
                             className="p-2 border border-gray-600 mt-2 md:w-2/12"
