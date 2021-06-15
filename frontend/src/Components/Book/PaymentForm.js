@@ -38,7 +38,7 @@ function PaymentForm({ booking, setBooking, maxLengthCheck, onSubmitHandler }) {
                         aria-required="true"
                         value={booking.number}
                     />
-                    <i className="fas fa-credit-card text-gray-600 transform scale-150 absolute bottom-0 right-0 mr-5 mb-3"></i>
+                    
                 </div>
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between pt-2">
                     <label htmlFor="expiry-date" className="mr-2">Expiry Date*</label>
