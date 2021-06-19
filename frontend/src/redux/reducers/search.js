@@ -22,13 +22,6 @@ const initialState = {
 export default function (state = initialState, action) {
     switch (action.type) {
         case SEARCH: {
-            return {
-                ...state,
-                hotels: action.payload.hotels.data,
-                success: action.payload.success ? true : false,
-                errors: action.payload.success ? null : action.payload.errors,
-            
-            };
         }
         case GET_SEARCH_DATA: {
             return {
