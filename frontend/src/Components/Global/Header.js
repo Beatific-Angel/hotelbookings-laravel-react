@@ -5,18 +5,11 @@ import useSecureLs from "../Global/useSecureLs";
 import SecureLS from "secure-ls";
 
 function Header({ hotelId }) {
-    useEffect(() => {
-        let _firstLogin = localStorage.getItem("first_login");
-        if (_firstLogin === "true" && state.auth.isAuthenticated) {
-            setFirstLogin(true);
-        }
-    }, []); // eslint-disable-line
 
     const [dropDown, setDropDown] = useState(false);
     const state = useSelector((state) => state);
     const [id] = useSecureLs("user_id");
     let ls = new SecureLS({ encodingType: "aes", isCompression: false });
-    const [firstLogin, setFirstLogin] = useState(false);
     return (
         <header className="relative">
             <nav
