@@ -80,26 +80,6 @@ function Header({ hotelId }) {
                         </>
                     ) : (
                         <>
-                            <li
-                                aria-label="dropdown button"
-                                className="mr-5 hover:text-yellow-500 cur"
-                                onClick={() => {
-                                    setDropDown(!dropDown);
-                                }}
-                                onMouseOver={() => {
-                                    localStorage.setItem("first_login", false);
-                                    setFirstLogin(false);
-                                }}
-                            >
-                                <span className="pb-2 pl-24">
-                                    <i
-                                        className={`fas fa-caret-down fa-lg fa-2x cursor-pointer ${
-                                            firstLogin && "animate-bounce"
-                                        }`}
-                                    ></i>
-                                </span>
-                                <br />
-                            </li>
                             {!state.auth.is_admin ? (
                                 <div
                                     onClick={() => setDropDown(!dropDown)}
@@ -123,13 +103,6 @@ function Header({ hotelId }) {
                                 focus:outline-none focus:bg-gray-300 "
                                     >
                                         Your Bookings
-                                    </Link>
-                                    <Link
-                                        to={`/user-reviews/${id}`}
-                                        className="block px-4 py-2 text-gray-700 hover:bg-gray-300
-                                focus:outline-none focus:bg-gray-300 "
-                                    >
-                                        Your Reviews
                                     </Link>
 
                                     <button
