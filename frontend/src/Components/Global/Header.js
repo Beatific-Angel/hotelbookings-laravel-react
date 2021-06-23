@@ -156,13 +156,6 @@ function Header({ hotelId }) {
                                     >
                                         Booking Management
                                     </Link>
-                                    <Link
-                                        to="/review-management"
-                                        className="block px-4 py-2 text-gray-700 hover:bg-gray-300
-                                focus:outline-none focus:bg-gray-300 "
-                                    >
-                                        Review Management
-                                    </Link>
 
                                     <button
                                         className="text-left w-full px-4 py-2 text-gray-700 hover:bg-gray-300
@@ -185,9 +178,3 @@ function Header({ hotelId }) {
         </header>
     );
 }
-
-Header.defaultProps = {
-    hotelId: 1
-};
-
-export default Header;
