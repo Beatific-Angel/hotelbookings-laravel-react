@@ -30,6 +30,35 @@ export default function (state = initialState, action) {
                 errors: action.payload.success ? null : action.payload.errors
             };
         }
-        
+        case UPDATE_USER_EMAIL: {
+            return {
+                ...state,
+                success: action.payload.success ? true : false,
+                user: action.payload.success ? action.payload.user : null,
+                errors: action.payload.success ? null : action.payload.errors
+            };
+        }
+        case UPDATE_USER_PASSWORD: {
+            return {
+                ...state,
+                success: action.payload.success ? true : false,
+                user: action.payload.success ? action.payload.user : null,
+                errors: action.payload.success ? null : action.payload.errors
+            };
+        }
+        case SET_SUCCESS: {
+            return {
+                ...state,
+                success: action.payload
+            };
+        }
+        case SET_LOADING: {
+            return {
+                ...state,
+                loading: action.payload
+            };
+        }
+        default:
+            return state;
     }
 }
