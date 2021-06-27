@@ -65,21 +65,6 @@ function GuestReview({
                 </span>
             </div>
 
-            <div className=" bg-gray-200 text-gray-700 p-5 mt-10 rounded-sm  relative md:w-10/12 md:mt-0">
-                <i className="fas fa-caret-left text-gray-200 fa-3x absolute top-0 left-0 -ml-4 opacity-0 md:opacity-100"></i>
-                <i className="fas fa-caret-up text-gray-200 fa-3x absolute top-0 -mt-8 ml-1 md:opacity-0"></i>
-                <p>{content}</p>
-                {user_id === _user_id && (
-                    <div className="mt-5 text-gray-200 absolute bottom-0 right-0 mb-2 mr-2">
-                        <Link
-                            to={`/user-reviews/${user_id}`}
-                            className="text-xs font-semibold p-1 text-green-600 rounded-sm hover:text-green-900 cursor-pointer"
-                        >
-                            <i className="fas fa-edit fa-lg"></i>
-                        </Link>
-                    </div>
-                )}
-            </div>
         </div>
     );
 }
