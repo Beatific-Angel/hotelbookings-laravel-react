@@ -8,36 +8,7 @@ function GuestReview({
     const [_user_id] = useSecureLs("user_id");
     let _rating = "";
     switch (rating) {
-        case 10:
-            _rating = "10/10 Amazing";
-            break;
-        case 9:
-            _rating = "9/10 Great";
-            break;
-        case 8:
-            _rating = "8/10 Very Good";
-            break;
-        case 7:
-            _rating = "7/10 Good";
-            break;
-        case 6:
-            _rating = "6/10 Fine";
-            break;
-        case 5:
-            _rating = "5/10 Average";
-            break;
-        case 4:
-            _rating = "4/10 Bad";
-            break;
-        case 3:
-            _rating = "3/10 Very Bad";
-            break;
-        case 2:
-            _rating = "2/10 Horrible";
-            break;
-        case 1:
-            _rating = "1/10 Appaling";
-            break;
+
 
         default:
             break;
