@@ -1,9 +1,16 @@
 import axios from "axios";
+import {
+    GET_USER,
+    UPDATE_USER_INFO,
+    UPDATE_USER_EMAIL,
+    UPDATE_USER_PASSWORD
+} from "../actionTypes";
 import { setLoading } from "./global";
 
 const url = process.env.REACT_APP_BASE_URL;
 
 //-----------------------------------------
+//test
 
 export const getUser = (dispatch, token, id) => {
     axios(`${url}/api/users/${id}`, {
