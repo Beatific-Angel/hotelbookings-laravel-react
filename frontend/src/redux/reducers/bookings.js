@@ -45,14 +45,7 @@ export default function (state = initialState, action) {
                 }
             };
         }
-        case ADD_BOOKING: {
-            return {
-                ...state,
-                success: action.payload.success ? true : false,
-                booking: action.payload.booking,
-                errors: action.payload.success ? null : action.payload.errors
-            };
-        }
+        
         case SET_LOADING: {
             return {
                 ...state,
