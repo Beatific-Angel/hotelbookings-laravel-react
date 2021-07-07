@@ -1,10 +1,4 @@
 import axios from "axios";
-import {
-    GET_USER,
-    UPDATE_USER_INFO,
-    UPDATE_USER_EMAIL,
-    UPDATE_USER_PASSWORD
-} from "../actionTypes";
 import { setLoading } from "./global";
 
 const url = process.env.REACT_APP_BASE_URL;
@@ -34,14 +28,24 @@ export const updateUserInfo = (dispatch, token, formData) => {
                 headers: { Authorization: `Bearer ${token}` }
             }
         )
-    
+        .then((response) => {
+            dispatch({
+                type: UPDATE_USER_INFO,
+                payload: response.data.data
+            });
+            setLoading(dispatch, false);
+        })
+        .catch((error) => {
+            setLoading(dispatch, true);
+        });
 };
 //-----------------------------------------
 
 export const updateUserEmail = (
     dispatch,
     token,
-    id
+    id,
+    { email, newEmail, confirmNewEmail }
 ) => {
     setLoading(dispatch, true);
 
