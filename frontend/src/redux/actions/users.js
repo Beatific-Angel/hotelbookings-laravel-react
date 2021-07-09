@@ -41,8 +41,7 @@ export const updateUserInfo = (dispatch, token, formData) => {
 export const updateUserEmail = (
     dispatch,
     token,
-    id,
-    { email, newEmail, confirmNewEmail }
+    id
 ) => {
     setLoading(dispatch, true);
 
