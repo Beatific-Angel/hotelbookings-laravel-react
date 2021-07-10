@@ -34,9 +34,33 @@ export const updateUserInfo = (dispatch, token, formData) => {
                 headers: { Authorization: `Bearer ${token}` }
             }
         )
+    
+};
+//-----------------------------------------
+
+export const updateUserEmail = (
+    dispatch,
+    token,
+    id,
+    { email, newEmail, confirmNewEmail }
+) => {
+    setLoading(dispatch, true);
+
+    axios
+        .put(
+            `${url}/api/users/${id}/update-email`,
+            {
+                email,
+                newEmail,
+                confirmNewEmail
+            },
+            {
+                headers: { Authorization: `Bearer ${token}` }
+            }
+        )
         .then((response) => {
             dispatch({
-                type: UPDATE_USER_INFO,
+                type: UPDATE_USER_EMAIL,
                 payload: response.data.data
             });
             setLoading(dispatch, false);
@@ -45,7 +69,6 @@ export const updateUserInfo = (dispatch, token, formData) => {
             setLoading(dispatch, true);
         });
 };
-//-----------------------------------------
 //-----------------------------------------
 
 export const updateUserPassword = (
@@ -59,6 +82,11 @@ export const updateUserPassword = (
     axios
         .put(
             `${url}/api/users/${id}/update-password`,
+            {
+                password,
+                newPassword,
+                confirmNewPassword
+            },
             {
                 headers: { Authorization: `Bearer ${token}` }
             }
