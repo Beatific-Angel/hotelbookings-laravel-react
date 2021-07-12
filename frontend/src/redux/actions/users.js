@@ -60,11 +60,6 @@ export const updateUserPassword = (
         .put(
             `${url}/api/users/${id}/update-password`,
             {
-                password,
-                newPassword,
-                confirmNewPassword
-            },
-            {
                 headers: { Authorization: `Bearer ${token}` }
             }
         )
