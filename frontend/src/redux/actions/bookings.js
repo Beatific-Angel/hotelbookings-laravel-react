@@ -30,6 +30,26 @@ export const getAllBookings = (dispatch, token, page = 1) => {
         });
 };
 //-----------------------------------------
+
+export const getUserBookings = (dispatch, id, token, page = 1) => {
+    setLoading(dispatch, true);
+    axios(`${url}/api/bookings/user/${id}?page=${page}`, {
+        headers: { Authorization: `Bearer ${token}` }
+    })
+        .then((response) => {
+            dispatch({
+                type: GET_USER_BOOKINGS,
+                payload: response.data.data
+            });
+            setLoading(dispatch, false);
+        })
+        .catch((error) => {
+            setLoading(dispatch, false);
+            if (error.response.status === 401) {
+                window.location.replace("/401");
+            }
+        });
+};
 //-----------------------------------------
 export const addBooking = (dispatch, booking, token) => {
     setLoading(dispatch, true);
