@@ -11,7 +11,17 @@ import {
 import { setLoading } from "./global";
 
 const url = process.env.REACT_APP_BASE_URL;
-
+//-----------------------------------------
+export const getFeaturedHotels = (dispatch) => {
+    axios(`${url}/api/hotels`)
+        .then((response) => {
+            dispatch({
+                type: GET_FEATURED_HOTELS,
+                payload: response.data.data
+            });
+        })
+        .catch((error) => {});
+};
 //-----------------------------------------
 export const getAllHotels = (dispatch, token, page = 1) => {
     setLoading(dispatch, true);
