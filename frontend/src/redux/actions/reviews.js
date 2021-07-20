@@ -1,14 +1,4 @@
 import axios from "axios";
-import {
-    GET_USER_REVIEWS,
-    ADD_REVIEW,
-    UPDATE_REVIEW,
-    DELETE_REVIEW,
-    HAS_BOOKED,
-    GET_HOTEL_REVIEWS,
-    GET_ALL_REVIEWS
-} from "../actionTypes";
-import { setLoading } from "./global";
 
 const url = process.env.REACT_APP_BASE_URL;
 
