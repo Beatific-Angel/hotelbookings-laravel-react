@@ -145,35 +145,6 @@ export const deleteReview = (dispatch, token, review) => {
 };
 
 //-----------------------------------------
-export const updateUserReview = (dispatch, token, review) => {
-    setLoading(dispatch, true);
-    axios
-        .put(
-            `${url}/api/reviews/${review.id}`,
-            {
-                content: review.content,
-                rating: review.rating,
-                user_id: review.user_id,
-                hotel_id: review.hotel_id
-            },
-            {
-                headers: { Authorization: `Bearer ${token}` }
-            }
-        )
-        .then((response) => {
-            dispatch({
-                type: UPDATE_REVIEW,
-                payload: response.data.data
-            });
-            getUserReviews(dispatch, token, review.user_id);
-
-            setLoading(dispatch, false);
-        })
-        .catch((error) => {
-            setLoading(dispatch, false);
-        });
-};
-//-----------------------------------------
 export const deleteUserReview = (dispatch, token, review) => {
     setLoading(dispatch, true);
     axios
