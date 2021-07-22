@@ -1,5 +1,17 @@
 import axios from "axios";
+import {
+    GET_USER_REVIEWS,
+    ADD_REVIEW,
+    UPDATE_REVIEW,
+    DELETE_REVIEW,
+    HAS_BOOKED,
+    GET_HOTEL_REVIEWS,
+    GET_ALL_REVIEWS
+} from "../actionTypes";
+import { setLoading } from "./global";
 
+
+//----------------------------------------
 const url = process.env.REACT_APP_BASE_URL;
 
 //-----------------------------------------
@@ -144,6 +156,35 @@ export const deleteReview = (dispatch, token, review) => {
         });
 };
 
+//-----------------------------------------
+export const updateUserReview = (dispatch, token, review) => {
+    setLoading(dispatch, true);
+    axios
+        .put(
+            `${url}/api/reviews/${review.id}`,
+            {
+                content: review.content,
+                rating: review.rating,
+                user_id: review.user_id,
+                hotel_id: review.hotel_id
+            },
+            {
+                headers: { Authorization: `Bearer ${token}` }
+            }
+        )
+        .then((response) => {
+            dispatch({
+                type: UPDATE_REVIEW,
+                payload: response.data.data
+            });
+            getUserReviews(dispatch, token, review.user_id);
+
+            setLoading(dispatch, false);
+        })
+        .catch((error) => {
+            setLoading(dispatch, false);
+        });
+};
 //-----------------------------------------
 export const deleteUserReview = (dispatch, token, review) => {
     setLoading(dispatch, true);
