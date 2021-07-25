@@ -5,7 +5,7 @@ import {
     UPDATE_ROOM,
     GET_ALL_ROOMS
 } from "../actionTypes";
-import { setLoading } from "./global";
+
 import axios from "axios";
 
 const url = process.env.REACT_APP_BASE_URL;
@@ -81,7 +81,7 @@ export const updateRoom = (dispatch, formData, token) => {
         .catch((error) => {
             setLoading(dispatch, false);
             if (error.response.status === 401) {
-                window.location.replace("/404");
+                window.location.replace("/401");
             }
         });
 };
