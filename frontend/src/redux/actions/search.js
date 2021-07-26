@@ -5,23 +5,6 @@ import { setLoading } from "./global";
 const url = process.env.REACT_APP_BASE_URL;
 
 //-----------------------------------------
-export const getSearchData = (dispatch) => {
-    axios({
-        method: "get",
-        url: `${url}/api/hotels/search`,
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-        .then((response) => {
-            dispatch({
-                type: GET_SEARCH_DATA,
-                payload: response.data.data
-            });
-        })
-        .catch((error) => {});
-};
-
 //-----------------------------------------
 export const search = (dispatch, criteria, page = 1) => {
     setLoading(dispatch, true);
