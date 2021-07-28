@@ -18,11 +18,7 @@ export const search = (dispatch, criteria, page = 1) => {
             check_in: criteria.check_in,
             check_out: criteria.check_out,
             city: criteria.city,
-            star: criteria.star,
-            guest: criteria.guest,
-            min_price: criteria.min_price,
-            max_price: criteria.max_price,
-            features: criteria.features
+            star: criteria.star
         }
     })
         .then((response) => {
