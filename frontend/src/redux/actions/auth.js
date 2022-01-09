@@ -95,13 +95,5 @@ export const checkAuth = (dispatch, _token, userId, isAdmin) => {
                   is_admin
               }
           })
-        : dispatch({
-              type: CHECK_AUTH,
-              payload: {
-                  isAuthenticated: false,
-                  user_id: null,
-                  token: null,
-                  is_admin: null
-              }
-          });
+        ;
 };
