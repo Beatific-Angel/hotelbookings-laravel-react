@@ -4,13 +4,6 @@ import { setSuccess } from "../../redux/actions/global";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import BookingDetails from "./BookingDetails";
-import PaymentForm from "./PaymentForm";
-import Border from "../Global/Border";
-import Loading from "../Global/Loading";
-import ErrorMessage from "../Global/ErrorMessage";
-import SuccessMessage from "../Global/SuccessMessage";
-import useSecureLs from "../Global/useSecureLs";
 
 function BookForm() {
     const dispatch = useDispatch();
