@@ -67,9 +67,6 @@ export const addBooking = (dispatch, booking, token) => {
                 user_id: booking.user_id,
                 room_id: booking.room_id,
                 amount: booking.amount
-            },
-            {
-                headers: { Authorization: `Bearer ${token}` }
             }
         )
         .then((response) => {
