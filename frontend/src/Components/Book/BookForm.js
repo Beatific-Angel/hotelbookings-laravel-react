@@ -64,7 +64,15 @@ function BookForm() {
                 <ErrorMessage errors={state.bookings.errors} />
             )}
             {state.bookings.success && <SuccessMessage message="Success" />}
-        
+            <div className="bg-gray-300 p-5 lg:w-7/12 border border-gray-400 rounded-sm ">
+                <BookingDetails booking={booking} setBooking={setBooking} />
+                <Border borderColor="border-gray-500" my="8" />
+                <PaymentForm
+                    booking={booking}
+                    setBooking={setBooking}
+                    maxLengthCheck={maxLengthCheck}
+                    onSubmitHandler={onSubmitHandler}
+                />
                 <Border borderColor="border-gray-500" my="8" />
             </div>
         </div>
